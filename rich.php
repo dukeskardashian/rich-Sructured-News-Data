@@ -11,18 +11,18 @@ if ($conn->connect_error) {
     die("Verbindung zur Datenbank fehlgeschlagen: " . $conn->connect_error);
 }
 
-$sql = "SELECT title, pcontent FROM qa_posts";
+$sql = "SELECT title, content FROM table";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     $jsonData = array();
     while ($row = $result->fetch_assoc()) {
         $title = $row["title"];
-        $pcontent = $row["pcontent"];
+        $pcontent = $row["content"];
 
         $data = array(
             "headline" => $title,
-            "content" => $pcontent
+            "content" => $content
             // Weitere relevante Felder für die Rich Results hier ergänzen
         );
 
